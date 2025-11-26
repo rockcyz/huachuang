@@ -14,6 +14,10 @@ export default defineConfig(({ mode }) => {
       if (!repoName.includes('.github.io')) {
         base = `/${repoName}/`;
       }
+    } else if (process.env.NODE_ENV === 'production') {
+      // 如果本地构建用于 GitHub Pages，默认使用仓库名
+      // 这里可以根据实际情况调整
+      base = '/huachuang/';
     }
     
     return {
